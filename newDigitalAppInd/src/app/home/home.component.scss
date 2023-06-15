@@ -1,0 +1,46 @@
+.raw {
+    flex-direction: row;
+    padding: 10px;
+    background-color:aqua;
+}
+.popularemanu{
+    align-items: center;
+    justify-content: center;
+    //background-color: aqua;
+    text-align: center;
+    height: 80px;
+    padding-bottom: 60px;
+    border-width: 2;
+    border-color: black;
+}
+.popular{
+    //color: azure;
+    font-size: 70px;
+    margin-bottom: 20px;
+    
+}
+.dropdown{
+    margin-right: 30px;
+    flex-direction: row;
+}
+.btn-secondary{
+    margin-right: 10px;
+}
+.container{
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+   
+}
+.carousel-inner{
+    flex-direction: row;
+}
+
+.card{
+    flex-direction: row;
+}
+.discription{
+    //background-color: aqua;
+    width: 40%;
+    
+}

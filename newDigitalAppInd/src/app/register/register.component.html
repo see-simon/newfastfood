@@ -1,0 +1,40 @@
+<form class="container" [formGroup]="registerForm" (ngSubmit)="onregister()">
+
+  <div class="namesContainer">
+
+    <div class="col-md-5">
+      <label for="validationDefault01" class="form-label">First name</label>
+      <input type="text" class="form-control" id="validationDefault01" formControlName="firstname"  required>
+    </div>
+
+    <div class="col-md-5">
+      <label for="validationDefault02" class="form-label">Last name</label>
+      <input type="text" class="form-control" id="validationDefault02" formControlName ="lastname" required>
+    </div>
+
+  </div>
+
+  <div class="emailsContainer">
+  <div class="col-md-5">
+    <label for="validationDefault03" class="form-label">Email</label>
+    <div class="input-group">
+
+      <input type="text" class="form-control" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2" formControlName ="email"
+        required>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <label for="validationDefault03" class="form-label">Password</label>
+    <input type="password" class="form-control" id="validationDefault03" formControlName="password" required>
+  </div>
+
+</div>
+
+
+<div class="submitButton">
+  <div class="col-12">
+    <button class="btn btn-primary" type="submit" >Submit</button>
+  </div>
+</div>
+</form>
