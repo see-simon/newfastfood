@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+//
 import { AuthService } from '../auth.service';
+//
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Users } from '../models/users';
 
@@ -11,17 +13,20 @@ import { Users } from '../models/users';
 export class RegisterComponent implements OnInit{
 
   registerForm!: FormGroup;
+  
+
+
+
   users!: Users;
+  
   constructor(private userService: AuthService,private fb : FormBuilder) {
     this.registerForm =this.fb.group({
       firstname: ['',[Validators.required, Validators.min(3)]],
       lastname: ['',[Validators.required, Validators.min(3)]],
       email: ['',[Validators.required, Validators.email]],
-      password: ['',[Validators.required, Validators.min(8)] ]
+      password: ['',[Validators.required, Validators.min(8)]]
     })
   }
-
-
 
   // this.passwordValidator
   ngOnInit() {
@@ -48,8 +53,11 @@ export class RegisterComponent implements OnInit{
          
         })
     }
-
-
   }
+  
+  ///for login
+
+ 
+  
 
 }

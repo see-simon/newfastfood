@@ -2,14 +2,14 @@ const Pool = require('pg').Pool
 const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
-  database: 'digitalAppIndividual',
-  password: 'Letsdoit!',
+  database: 'postgres',
+  password: 'SEE6580',
   port: 5432,
 })
 
 
 const getUsers = (request, response) => {
-    pool.query('SELECT * FROM users ', (error, results) => {
+    pool.query('SELECT * FROM users  ', (error, results) => {
       if (error) {
         throw error
       }
@@ -20,7 +20,7 @@ const getUsers = (request, response) => {
   const getUserById = (request, response) => {
     const id = parseInt(request.params.id)
   
-    pool.query('SELECT * FROM users WHERE id = $1', [id], (error, results) => {
+    pool.query('SELECT firstname FROM users WHERE id = $1', [id], (error, results) => {
       if (error) {
         throw error
       }
@@ -44,13 +44,13 @@ const getUsers = (request, response) => {
 
   const updateUser = (request, response) => {
     const id = parseInt(request.params.id)
-    const {  name, email } = request.body
+    const {  firstname, email } = request.body
   
     pool.query(
 
-      'UPDATE users SET name = $1, email = $2 WHERE id = $3',
+      'UPDATE users SET firstname = $1, email = $2 WHERE id = $3',
       //'UPDATE registration SET name = thabo, email = thabo@gmail.com WHERE id = $1',
-      [ name, email, id],
+      [ firstname, email, id],
       (error, results) => {
         if (error) {
           throw error
@@ -71,15 +71,31 @@ const getUsers = (request, response) => {
     })
   }
 
+// for breakefast
+
+  const getBreakefast = (request, response) => {
+    pool.query('SELECT * FROM breakefast  ', (error, results) => {
+      if (error) {
+        throw error
+       
+      }
+      response.status(200).json(results.rows)
+    })
+  }
+
   module.exports = {
     getUsers,
     getUserById,
     createUser,
     updateUser,
     deleteUser,
+    getBreakefast,
   }
 
-// for registration 
+
+
+
+
 
 
 

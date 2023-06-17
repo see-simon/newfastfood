@@ -19,7 +19,7 @@ const routes: Routes = [
   {path:'trackorder', component: TrackorderComponent},
 
   {path:'drinks', component: DrinksComponent},
-    {path: 'burgers', component: BurgersComponent},
+    {path:'burgers', component: BurgersComponent},
 
   {path:'register', component: RegisterComponent},
   
