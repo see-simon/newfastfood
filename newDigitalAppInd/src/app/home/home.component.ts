@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { BreakefastService } from '../services/breakefast.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -11,6 +12,11 @@ import { BreakefastService } from '../services/breakefast.service';
 export class HomeComponent implements OnInit {
 
   breakefast : any ;
+  //
+    breakefastId;
+    breakeF;
+    
+  //
 
   constructor(private http: HttpClient, private brakefastservice: BreakefastService) {
 
