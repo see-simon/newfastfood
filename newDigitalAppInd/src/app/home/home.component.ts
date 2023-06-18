@@ -10,12 +10,17 @@ import { BreakefastService } from '../services/breakefast.service';
 })
 export class HomeComponent implements OnInit {
 
+  breakefast : any ;
+
   constructor(private http: HttpClient, private brakefastservice: BreakefastService) {
 
   }
 
+
   ngOnInit() {
     this.fetchProduct()
+    // console.log(this.breakefast)
+
   }
 
   onproductFetch() {
@@ -24,6 +29,17 @@ export class HomeComponent implements OnInit {
 
   private fetchProduct (){
     this.brakefastservice.getBreakefast()
+    .subscribe({
+      next:data=>{
+        // console.log(data)
+        this.breakefast = data;
+        //console.log(this.breakefast)
+      }
+      ,error:err=>{
+        console.log(err)
+
+      }
+    })
   }
 
 }

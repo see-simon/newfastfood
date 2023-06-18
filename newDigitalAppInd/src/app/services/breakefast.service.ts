@@ -15,6 +15,8 @@ export class BreakefastService implements OnInit{
 
   allBreakefastProducts: Breakefast [] = [];
 
+  
+
   constructor( private http: HttpClient) { }
 
   ngOnInit(){
@@ -30,24 +32,27 @@ export class BreakefastService implements OnInit{
   //get breake fast
 
     getBreakefast(){
-      return this.http.get<{[key: string]: Breakefast}>(apiurl)
-      .pipe(map((res )=>{
-        const breakefastProduct = [];
+  //     return this.http.get<{[key: string]: Breakefast}>(apiurl)
+  //     .pipe(map((res )=>{
+  //       const breakefastProduct = [];
 
-        for(const key in res){
-          if (res.hasOwnProperty(key)) {
-            breakefastProduct.push({...res[key], id:key})
-          }
-        }
-        return breakefastProduct;
+  //       for(const key in res){
+  //         if (res.hasOwnProperty(key)) {
+  //           breakefastProduct.push({...res[key], id:key})
+  //         }
+  //       }
+  //       return breakefastProduct;
 
-      }))
+  //     }))
 
-      .subscribe((breakefastProduct)=>{
-        console.log("mpelemane dmsmmxm")
-      console.log(breakefastProduct);
-      this.allBreakefastProducts = breakefastProduct;
-    })
+  //     .subscribe((breakefastProduct)=>{
+  //      console.log(breakefastProduct  );
+  //     this.allBreakefastProducts = breakefastProduct;
+  //  })
+
+  return this.http.get(apiurl)
+      
+
     }
 
 }
