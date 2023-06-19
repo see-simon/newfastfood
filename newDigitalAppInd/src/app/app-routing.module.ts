@@ -16,7 +16,7 @@ const routes: Routes = [
   {path:'breakefast', component: BreakefastComponent},
   {path:'history', component: HistoryComponent},
   {path:'profile', component:HistoryComponent},
-  {path:'trackorder/:id', component: TrackorderComponent},
+  {path:'trackorder', component: TrackorderComponent},
 
   {path:'drinks', component: DrinksComponent},
     {path:'burgers', component: BurgersComponent},
