@@ -8,6 +8,7 @@ import { TrackorderComponent } from './trackorder/trackorder.component';
 import { DrinksComponent } from './drinks/drinks.component';
 import { BurgersComponent } from './burgers/burgers.component';
 import { RegisterComponent } from './register/register.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
 
@@ -15,7 +16,7 @@ const routes: Routes = [
   {path : 'login' , component: LoginComponent },
   {path:'breakefast', component: BreakefastComponent},
   {path:'history', component: HistoryComponent},
-  {path:'profile', component:HistoryComponent},
+  {path:'profile', component:ProfileComponent},
   {path:'trackorder', component: TrackorderComponent},
 
   {path:'drinks', component: DrinksComponent},

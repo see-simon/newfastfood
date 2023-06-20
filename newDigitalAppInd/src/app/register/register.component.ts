@@ -44,12 +44,16 @@ export class RegisterComponent implements OnInit{
            return null;  
   }
 
+
+    
+
   onregister(){
 
     if(this.registerForm.valid){
         this.userService.register(this.registerForm.value).subscribe(res =>{
          // this.users = res
          console.log(res);
+         
          
         })
     }

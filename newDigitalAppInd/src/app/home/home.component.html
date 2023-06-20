@@ -6,23 +6,23 @@
 
 
 
-<div class="container" *ngFor="let product of breakefast">
+  <div class="container" *ngFor="let product of breakefast">
 
-  <div class="card" style="width: 70%">
+    <div class="card" style="width: 70%">
 
-    <img [src]="product.imageurl" style="width: 60% ">
+      <img [src]="product.imageurl" style="width: 60% ">
 
-    <div class="card-body">
- 
-      <p class="discription"> {{product.foodname}}</p>
-      
+      <div class="card-body">
 
-      <p class="card-text">Price: R {{product.price}} </p>
+        <p class="discription"> {{product.foodname}}</p>
 
-      <a href="#" class="btn btn-primary" [routerLink]="['/trackorder', ]"  >Make Order </a>
-      
+
+        <p class="card-text">Price: R {{product.price}} </p>
+
+        <a href="#" class="btn btn-primary" [routerLink]="['/trackorder', ]">Make Order </a>
+
+      </div>
+
     </div>
-    
-  </div>
 
-</div>
+  </div>

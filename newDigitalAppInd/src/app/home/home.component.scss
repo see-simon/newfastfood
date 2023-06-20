@@ -3,6 +3,11 @@
     padding: 10px;
     background-color:aqua;
 }
+.body{
+    align-items: center;
+    justify-content: center;
+    // background-color: aqua;
+}
 .popularemanu{
     align-items: center;
     justify-content: center;
@@ -12,6 +17,7 @@
     padding-bottom: 60px;
     border-width: 2;
     border-color: black;
+    
 }
 .popular{
     //color: azure;
@@ -27,14 +33,17 @@
     margin-right: 10px;
 }
 .container{
+
+    margin: 30px;
+    display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 30px;
-   
+    scroll-behavior: auto;
+
+    //background-color: aqua;
+
 }
-.carousel-inner{
-    flex-direction: row;
-}
+
 
 .card{
     flex-direction: row;
@@ -46,4 +55,15 @@
 }
 .card-body{
     width: "30%";
+    background-color: #fcfafa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    // border-color: rgb(218, 224, 224);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border: solid ;
+    border-color: #e6e6e6;
+    
 }
