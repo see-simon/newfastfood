@@ -15,9 +15,9 @@ const routes: Routes = [
   {path : 'home' , component: HomeComponent },
   {path : 'login' , component: LoginComponent },
   {path:'breakefast', component: BreakefastComponent},
-  {path:'history', component: HistoryComponent},
+  {path:'history/:id', component: HistoryComponent},
   {path:'profile', component:ProfileComponent},
-  {path:'trackorder', component: TrackorderComponent},
+  {path:'trackorder/:message', component: TrackorderComponent},
 
   {path:'drinks', component: DrinksComponent},
     {path:'burgers', component: BurgersComponent},
