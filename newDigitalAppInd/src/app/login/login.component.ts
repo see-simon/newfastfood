@@ -1,14 +1,7 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Observable } from 'rxjs';
 
-import { Users } from '../models/users';
-
-
-//const apiUrl = 'http://localhost:3000/users'
-
-
+import { AuthService } from 'src/app/services/auth/auth.service'; 
 
 
 @Component({
@@ -18,11 +11,29 @@ import { Users } from '../models/users';
 })
 export class LoginComponent {
 
-  
+  formData: any = {}; // Object to store form data
+  loginSuccess: boolean = false;
+  loginError: string | null = null;
 
-  constructor() { }
+  constructor( private authService:AuthService ) { }
 
   
+  onSubmit() {
+    const { email, password } = this.formData;
+    this.authService.loginUser(email, password).subscribe(
+      (response) => {
+        this.loginSuccess = true;
+        this.loginError = null;
+        // Handle successful login, e.g., redirect to the user dashboard
+        console.log(this.formData,"fgcgvhvgvgvyvhv")
+      },
+      (error) => {
+        this.loginSuccess = false;
+        this.loginError = 'Login failed. Please check your credentials.';
+      }
+    );
+    
+  }
   
 
 

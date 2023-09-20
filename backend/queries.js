@@ -41,6 +41,33 @@ const getUsers = (request, response) => {
     })
   }
 
+  // login method
+
+  const loginUser = (request, response) => {
+    const { email, password } = request.body;
+  
+    pool.query('SELECT * FROM users WHERE email = $1', [email], (error, results) => {
+      if (error) {
+        throw error;
+      }
+  
+      if (results.rows.length === 0) {
+        // User not found
+        response.status(401).json({ message: 'Authentication failed. User not found.' });
+      } else {
+        const user = results.rows[0];
+  
+        if (user.password === password) {
+          // Passwords match, user is authenticated
+          response.status(200).json({ message: 'Authentication successful.', user: user });
+        } else {
+          // Passwords don't match
+          response.status(401).json({ message: 'Authentication failed. Incorrect password.' });
+        }
+      }
+    });
+  };
+  
 
   const updateUser = (request, response) => {
     const id = parseInt(request.params.id)
@@ -90,6 +117,7 @@ const getUsers = (request, response) => {
     updateUser,
     deleteUser,
     getBreakefast,
+    loginUser
   }
 
 

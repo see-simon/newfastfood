@@ -7,7 +7,7 @@ const cors = require("cors")
 
 
 app.use(cors({
-  origin: 'http://localhost:4200'
+  origin: '*'
 }))
 
 app.use(bodyParser.json())
@@ -25,8 +25,16 @@ app.get('/', (request, response) => {
 
 
 app.get('/users', db.getUsers)
+
+app.post('/users/login', db.loginUser)
+
+
 app.get('/users/:id', db.getUserById)
-app.post('/users', db.createUser)
+
+app.post('/users/register', db.createUser)
+
+// app.post('/users/login', db.createUser)
+
 app.put('/users/:id', db.updateUser)
 app.delete('/users/:id', db.deleteUser)
 

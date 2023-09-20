@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './login/login.component'; 
 import { BreakefastComponent } from './breakefast/breakefast.component';
-import { HistoryComponent } from './history/history.component';
+import { HistoryComponent } from './history/history.component'; 
 import { TrackorderComponent } from './trackorder/trackorder.component';
 import { DrinksComponent } from './drinks/drinks.component';
 import { BurgersComponent } from './burgers/burgers.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
+
 
 const routes: Routes = [
 
@@ -24,12 +25,14 @@ const routes: Routes = [
 
   {path:'register', component: RegisterComponent},
   
+  
 
     
 //to make default home page
 {path:'', redirectTo: 'home', pathMatch:'full'}
     
-
+//to make default getStarted page
+//{path:'', redirectTo: 'getStarted', pathMatch:'full'}
 ];
 
 @NgModule({

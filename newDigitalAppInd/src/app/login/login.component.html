@@ -23,3 +23,38 @@
       <span class="psw">Forgot <a href="#">password?</a></span>
     </div>
   </form> -->
+
+  
+
+  <div class="login-form">
+    <h2>Login</h2>
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+      <div class="form-group">
+        <label for="email">email</label>
+        <input
+          type="text"
+          id="email"
+          name="email"
+          class="form-control"
+          [(ngModel)]="formData.email"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          class="form-control"
+          [(ngModel)]="formData.password"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-primary" routerLink="/trackorder">Login</button>
+    </form>
+    <div *ngIf="loginError" class="alert alert-danger">
+      {{ loginError }}
+    </div>
+  </div>
+  

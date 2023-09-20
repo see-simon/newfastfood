@@ -18,19 +18,19 @@ export class AuthService {
 constructor(private http: HttpClient) { }
 
 
+// for registration
 
     registerUser(firstname: string, lastname: string, email: string, password :string ): Observable<any> {
       const userData = { firstname, lastname , email, password };
-      return this.http.post(`${apiUrl}/users`, userData);
+      return this.http.post(`${apiUrl}/users/register`, userData);
     }
 
-    logIn(credentials: { email: string, password: string }): Observable<any> {
-      return this.http.post(`${apiUrl}users/login`, credentials).pipe(
-        catchError((error: HttpErrorResponse) => {
-          // Handle the error here or rethrow it to be caught by the component.
-          return throwError(error.error.message);
-        })
-      );
+
+// for login
+
+    loginUser(email: string, password: string): Observable<any> {
+      const userData = { email, password };
+      return this.http.post(`${apiUrl}/users/login`, userData);
     }
 
 
