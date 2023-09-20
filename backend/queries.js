@@ -2,14 +2,14 @@ const Pool = require('pg').Pool
 const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
-  database: 'postgres',
-  password: 'SEE6580',
+  database: 'digitalAppIndividual',
+  password: 'Letsdoit!',
   port: 5432,
 })
 
 
 const getUsers = (request, response) => {
-    pool.query('SELECT * FROM users  ', (error, results) => {
+    pool.query('SELECT * FROM users', (error, results) => {
       if (error) {
         throw error
       }

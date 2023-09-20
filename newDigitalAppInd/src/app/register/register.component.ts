@@ -1,67 +1,48 @@
 import { Component, OnInit } from '@angular/core';
 //
-import { AuthService } from '../auth.service';
+import { AuthService } from '../services/auth/auth.service';
 //
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Users } from '../models/users';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
 })
-export class RegisterComponent implements OnInit{
+export class RegisterComponent {
+  formData: any = {}; // Object to store form data
+  registrationSuccess: boolean = false;
+  registrationError: string | null = null;
+  constructor(private authService: AuthService) {}
 
-  registerForm!: FormGroup;
-  
+  // registerUser(firstname: string, lastname: string, email: string, password :string ) {
+  onSubmit() {
+    const { firstname, lastname, email, password } = this.formData;
 
-
-
-  users!: Users;
-  
-  constructor(private userService: AuthService,private fb : FormBuilder) {
-    this.registerForm =this.fb.group({
-      firstname: ['',[Validators.required, Validators.min(3)]],
-      lastname: ['',[Validators.required, Validators.min(3)]],
-      email: ['',[Validators.required, Validators.email]],
-      password: ['',[Validators.required, Validators.min(8)]]
-    })
+    this.authService.registerUser(firstname, lastname, email, password).subscribe(
+        (response) => {
+          // Handle successful registration, e.g., redirect to login page
+          console.log(response);
+          console.log('successfully registered');
+          this.registrationSuccess = true;
+          this.registrationError = null;
+          
+          
+        },
+        (error) => {
+          // Handle registration error, e.g., display an error message
+          console.log(error);
+          this.registrationSuccess = false;
+          this.registrationError =
+            'Registration failed. Please try again later.';
+        }
+      );
+      console.log(this.formData)
   }
-
-  // this.passwordValidator
-  ngOnInit() {
-  
-  }
-
-  passwordValidator(control: FormControl): { [key: string]: boolean } | null {
-         const value: string = control.value;     
-         const hasSymbol = /[!@#$%^&*(),.?":{}|<>]/.test(value);     
-         const hasNumber = /\d/.test(value);     
-         const hasLetter = /[a-zA-Z]/.test(value);        
-         if (!hasSymbol || !hasNumber || !hasLetter) {
-                 return { invalidPassword: true };    
-         }       
-           return null;  
-  }
-
-
-    
-
-  onregister(){
-
-    if(this.registerForm.valid){
-        this.userService.register(this.registerForm.value).subscribe(res =>{
-         // this.users = res
-         console.log(res);
-         
-         
-        })
-    }
-  }
-  
-  ///for login
-
- 
-  
-
 }

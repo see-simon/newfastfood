@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { AuthService } from '../auth.service';
+
 import { Users } from '../models/users';
 
 
@@ -16,25 +16,14 @@ import { Users } from '../models/users';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
-  loginUserData = {}
-
-  users!: Users;
-
-  constructor(private authService: AuthService) { }
-
-  ngOnInit(){
-
-  }
   
-  loginUser(){
-    this.authService.loginUser(this.users)
-    .subscribe(
-      res =>console.log(res),
-      err =>console.log(err)
-    )
-  }
+
+  constructor() { }
+
+  
+  
 
 
 
