@@ -17,10 +17,11 @@ import { RegisterComponent } from './register/register.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HomenavComponent } from './homenav/homenav.component';
 
 
 @NgModule({
-  declarations: [	
+  declarations: [		
     AppComponent,
     ProductsComponent,
     LoginComponent,
@@ -34,7 +35,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RegisterComponent,
     NavBarComponent,
     FooterComponent,
-      
+      HomenavComponent
    ],
   imports: [
     BrowserModule,

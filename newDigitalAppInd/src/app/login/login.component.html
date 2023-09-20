@@ -24,11 +24,15 @@
     </div>
   </form> -->
 
-  
+  <div class="fastFoodWorld">
+    <h1 class="headertext"><b>Login</b></h1>
+</div>
 
-  <div class="login-form">
-    <h2>Login</h2>
+  
+    
     <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+
+      <div class="container">
       <div class="form-group">
         <label for="email">email</label>
         <input
@@ -52,9 +56,11 @@
         />
       </div>
       <button type="submit" class="btn btn-primary" routerLink="/trackorder">Login</button>
+    </div>
+     
     </form>
     <div *ngIf="loginError" class="alert alert-danger">
       {{ loginError }}
     </div>
-  </div>
+  
   

@@ -15,8 +15,8 @@ form {
     
     justify-content: center;
     align-content: center;
-    margin-left: 600px;
-    margin-top: 30px;
+    text-align: center;
+    margin-top: 5rem;
     
   }
   
@@ -28,7 +28,8 @@ form {
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 100%;
+    width: 40%;
+
   }
   
   /* Add a hover effect for buttons */
@@ -56,10 +57,19 @@ form {
     width: 40%;
     border-radius: 50%;
   }
+
+  loginform{
+    background-color: #f44336
+  }
   
   /* Add padding to containers */
   .container {
     padding: 16px;
+    align-items: center;
+    justify-content: center;
+    // background-color: #f44336;
+    height: 42rem;
+    
   }
   
   /* The "Forgot password" text */
