@@ -26,6 +26,8 @@ export class LoginComponent {
         this.loginError = null;
         // Handle successful login, e.g., redirect to the user dashboard
         console.log(this.formData,"fgcgvhvgvgvyvhv")
+         // Store the token securely (e.g., in local storage)
+         localStorage.setItem('token', response.token);
       },
       (error) => {
         this.loginSuccess = false;
