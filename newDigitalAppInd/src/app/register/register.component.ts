@@ -9,6 +9,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Users } from '../models/users';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -19,7 +20,7 @@ export class RegisterComponent {
   formData: any = {}; // Object to store form data
   registrationSuccess: boolean = false;
   registrationError: string | null = null;
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, public router: Router) {}
 
   // registerUser(firstname: string, lastname: string, email: string, password :string ) {
   onSubmit() {
@@ -32,8 +33,8 @@ export class RegisterComponent {
           console.log('successfully registered');
           this.registrationSuccess = true;
           this.registrationError = null;
-          
-          
+          alert("registration success")
+          this.router.navigate(['/login']);
         },
         (error) => {
           // Handle registration error, e.g., display an error message
@@ -41,6 +42,7 @@ export class RegisterComponent {
           this.registrationSuccess = false;
           this.registrationError =
             'Registration failed. Please try again later.';
+            alert("Registration failed. Please try again later.")
         }
       );
       console.log(this.formData)

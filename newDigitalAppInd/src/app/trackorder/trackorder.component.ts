@@ -5,6 +5,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BreakefastService } from '../services/breakefast.service';
 import { Breakefast } from '../models/breakefast';
 import { Route } from '@angular/router';
+import { ProductsService } from '../services/products/products.service';
+import { response } from 'express';
 
 @Component({
   selector: 'app-trackorder',
@@ -16,19 +18,48 @@ export class TrackorderComponent {
 
   message : 'hello from the other side'
 
-  constructor(private activateRoute : ActivatedRoute, private breakefastsevice : BreakefastService, private router: Router ){
+  constructor( private router: Router, private getBreakefast : BreakefastService, private products: ProductsService ){
 
   }
 
-  values : any;
+  breakefast : any ;
 
-  sendData =()=>{
-    this.router.navigate(['/home', this.message]);
+
+
+  // fetchProduct (){
+  //   this.getBreakefast.getBreakefast().subscribe({
+  //     next:data=>{
+  //       // console.log(data)
+  //       this.breakefast = data;
+  //       console.log(this.breakefast, "breakefast data")
+  //     }
+  //     ,error:err=>{
+  //       console.log(err)
+
+  //     }
+  //   })
+  // }
+
+
+  product : any;
+  fetchProduct (){
+    this.products.getBreakefast().subscribe({
+      next:data=>{
+        // console.log(data)
+        this.product = data;
+        console.log(this.product, " products are here")
+      }
+      ,error:err=>{
+        console.log(err)
+
+      }
+    })
+  }
+
+  ngOnInit() {
+    this.fetchProduct()
+  
   }
 
  
-
-
-  
-
 }

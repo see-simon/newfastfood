@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { BreakefastService } from '../services/breakefast.service';
 import { ActivatedRoute } from '@angular/router';
 
-import { SharedataService } from '../services/sharedata.service';
 
 
 @Component({
@@ -21,7 +20,7 @@ export class HomeComponent implements OnInit {
   message : any;
  
 
-  constructor(private http: HttpClient, private brakefastservice: BreakefastService, private sharedata : SharedataService,
+  constructor(private http: HttpClient, private brakefastservice: BreakefastService,
     private route: ActivatedRoute) {
 
   }
@@ -42,9 +41,7 @@ export class HomeComponent implements OnInit {
   }
 
   private fetchProduct (){
-    this.brakefastservice.getBreakefast()
-
-    .subscribe({
+    this.brakefastservice.getBreakefast().subscribe({
       next:data=>{
         // console.log(data)
         this.breakefast = data;

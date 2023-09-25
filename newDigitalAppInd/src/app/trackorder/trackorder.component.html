@@ -1,29 +1,28 @@
 
 <app-homenav></app-homenav>
-<div class="pagescontainer">
-<div class = "card text-center">
-    
-    <div class="card-body">
-      <h5 class="card-title">Special title treatment</h5>
-      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+<div class="popularemanu">
+  <header class="popular"><b>Popular Menu</b></header>
+
+</div>
+
+   <div class="container" *ngFor="let product of product">
+
+    <div class="card" style="width: 70%">
+
+      <img [src]="product.imageurl" style="width: 60% ">
+
+      <div class="card-body">
+
+        <p class="discription"> {{product.foodname}}</p>
 
 
-      
-      <div class="card" style="width: 18rem;">
-        
-        <div class="card-body">
-          <h5 class="card-title">Order Details</h5>
-          <p class="card-text">put the Orderdetails here </p>
-          <!-- <a href="#" class="btn btn-primary">Go somewhere</a>
-           -->
-           
-        </div>
+        <p class="card-text">Price: R {{product.price}} </p>
+
+         <button>Select Order</button>
+
       </div>
 
-
-
-      <a href="#" class="btn btn-primary">Proceed to pay</a>
     </div>
-    
-  </div>
-</div>
+
+  </div> 
+
