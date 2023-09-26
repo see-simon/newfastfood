@@ -18,6 +18,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomenavComponent } from './homenav/homenav.component';
+import { CartComponent } from './cart/cart.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { HomenavComponent } from './homenav/homenav.component';
     RegisterComponent,
     NavBarComponent,
     FooterComponent,
-      HomenavComponent
+      HomenavComponent,
+      CartComponent
    ],
   imports: [
     BrowserModule,

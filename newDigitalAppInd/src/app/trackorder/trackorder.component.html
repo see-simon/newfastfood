@@ -1,28 +1,26 @@
-
 <app-homenav></app-homenav>
+
 <div class="popularemanu">
   <header class="popular"><b>Popular Menu</b></header>
-
 </div>
 
-   <div class="container" *ngFor="let product of product">
-
-    <div class="card" style="width: 70%">
-
-      <img [src]="product.imageurl" style="width: 60% ">
-
-      <div class="card-body">
-
-        <p class="discription"> {{product.foodname}}</p>
-
-
-        <p class="card-text">Price: R {{product.price}} </p>
-
-         <button>Select Order</button>
-
-      </div>
-
+<div class="container" *ngFor="let productItem of product; let i = index">
+  <div class="card" style="width: 70%">
+    <img [src]="productItem.imageurl" style="width: 60%">
+    <div class="card-body">
+      <p class="discription">{{ productItem.foodname }}</p>
+      <p class="card-text">Price: R {{ productItem.price }}</p>
+      <button (click)="addToCart(productItem)">Add to Cart</button>
     </div>
+  </div>
+</div>
 
-  </div> 
-
+<div>
+  <h2>Total Cart Price: R {{ totalCartPrice }}</h2>
+  <ul>
+    <li *ngFor="let item of cartService.getCartItems(); let i = index">
+      {{ item.foodname }} - R {{ item.price }} 
+      <button (click)="removeItemFromCart(i)">Remove</button>
+    </li>
+  </ul>
+</div>
