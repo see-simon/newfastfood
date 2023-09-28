@@ -19,6 +19,7 @@ import { FooterComponent } from './footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomenavComponent } from './homenav/homenav.component';
 import { CartComponent } from './cart/cart.component';
+import { PaymentComponent } from './payment/payment.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { CartComponent } from './cart/cart.component';
     NavBarComponent,
     FooterComponent,
       HomenavComponent,
-      CartComponent
+      CartComponent,
+      PaymentComponent
    ],
   imports: [
     BrowserModule,

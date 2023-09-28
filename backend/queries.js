@@ -43,6 +43,41 @@ const getUsers = (request, response) => {
     })
   }
 
+  const payment = (request, response) => {
+    const { cardNumber, expirationDate, cvv } = request.body;
+  
+    // Validate input data
+    if (!cardNumber || !expirationDate || !cvv) {
+      response.status(400).json({ message: 'Payment data is incomplete' });
+      return;
+    }
+  
+    // Check if cardNumber is a valid integer (you may have other validation logic here)
+    if (isNaN(cardNumber)) {
+      response.status(400).json({ message: 'Invalid card number' });
+      return;
+    }
+  
+    // Continue with the database insert
+    pool.query(
+      'INSERT INTO payment (cardNumber, expirationDate, cvv) VALUES ($1, $2, $3) RETURNING *',
+      [cardNumber, expirationDate, cvv],
+      (error, results) => {
+        if (error) {
+          console.error('Payment error:', error);
+          response.status(500).json({ message: 'Payment failed due to a server error' });
+        } else {
+          const responseBody = {
+            message: `Payment added with order number: ${results.rows[0].id}`,
+          };
+          response.status(201).json(responseBody);
+        }
+      }
+    );
+  };
+  
+  
+
   // login method
 
   const loginUser = (request, response) => {
@@ -119,7 +154,8 @@ const getUsers = (request, response) => {
     updateUser,
     deleteUser,
     getBreakefast,
-    loginUser
+    loginUser,
+    payment
   }
 
 

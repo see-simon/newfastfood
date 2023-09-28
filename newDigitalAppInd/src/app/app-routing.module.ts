@@ -9,6 +9,7 @@ import { DrinksComponent } from './drinks/drinks.component';
 import { BurgersComponent } from './burgers/burgers.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
+import { PaymentComponent } from './payment/payment.component';
 
 
 const routes: Routes = [
@@ -25,7 +26,7 @@ const routes: Routes = [
 
   {path:'register', component: RegisterComponent},
   
-  
+  { path: 'payment/:totalCartPrice', component: PaymentComponent },
 
     
 //to make default home page

@@ -9,6 +9,7 @@ import { ProductsService } from '../services/products/products.service';
 
 
 import { CartService } from '../services/cart.service'; // Import CartService
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -24,10 +25,14 @@ export class TrackorderComponent {
 
   constructor( private router: Router, private getBreakefast : BreakefastService,
      private products: ProductsService ,   public cartService: CartService ){
-
-  }
+          // Subscribe to the totalCartPrice$ observable
+        this.cartSubscription = this.cartService.totalCartPrice$.subscribe((totalPrice) => {
+          this.totalCartPrice = totalPrice;
+        });
+     }
   product : any;
   totalCartPrice: number = 0;
+  private cartSubscription: Subscription; // Create a Subscription
 
   fetchProduct (){
     this.products.getBreakefast().subscribe({
@@ -50,6 +55,11 @@ export class TrackorderComponent {
   
   }
 
+  ngOnDestroy() {
+    // Unsubscribe from the cartSubscription to avoid memory leaks
+    this.cartSubscription.unsubscribe();
+  }
+
   addToCart(product: any) {
     this.cartService.addToCart(product);
     alert('Product added to cart'); // Show an alert or notification
@@ -64,5 +74,10 @@ export class TrackorderComponent {
     this.updateTotalCartPrice();
   }
 
- 
+  goToPayment() {
+    const totalCartPrice = this.totalCartPrice;
+    this.router.navigate(['/payment', totalCartPrice]);
+   
+  }
+
 }
