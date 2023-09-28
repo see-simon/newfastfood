@@ -32,8 +32,7 @@ export class HomeComponent implements OnInit {
     // console.log(this.breakefast)
 
     this.message = this.route.snapshot.paramMap.get('message')
-    
-
+  
   }
 
   onproductFetch() {
@@ -49,18 +48,8 @@ export class HomeComponent implements OnInit {
       }
       ,error:err=>{
         console.log(err)
-
       }
     })
   }
-
 //
-
-  
-
-  
-
- 
-  
-
 }

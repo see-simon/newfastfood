@@ -2,8 +2,8 @@ const Pool = require('pg').Pool
 const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
-  database: 'postgres',
-  password: 'SEE6580',
+  database: 'digitalAppIndividual',
+  password: 'Letsdoit!',
   port: 5432,
 
  
@@ -44,10 +44,10 @@ const getUsers = (request, response) => {
   }
 
   const payment = (request, response) => {
-    const { cardNumber, expirationDate, cvv } = request.body;
+    const { cardNumber, expirationDate, cvv, totalPrice } = request.body;
   
     // Validate input data
-    if (!cardNumber || !expirationDate || !cvv) {
+    if (!cardNumber || !expirationDate || !cvv || !totalPrice) {
       response.status(400).json({ message: 'Payment data is incomplete' });
       return;
     }
@@ -60,8 +60,8 @@ const getUsers = (request, response) => {
   
     // Continue with the database insert
     pool.query(
-      'INSERT INTO payment (cardNumber, expirationDate, cvv) VALUES ($1, $2, $3) RETURNING *',
-      [cardNumber, expirationDate, cvv],
+      'INSERT INTO payment (cardNumber, expirationDate, cvv, totalPrice) VALUES ($1, $2, $3, $4) RETURNING *',
+      [cardNumber, expirationDate, cvv, totalPrice],
       (error, results) => {
         if (error) {
           console.error('Payment error:', error);

@@ -5,15 +5,19 @@
 <form (submit)="processPayment()">
   <div class="form-group">
     <label for="cardNumber">Card Number</label>
-    <input type="text" id="cardNumber" name="cardNumber" class="form-control" required>
+    <input type="text" id="cardNumber" name="cardNumber" class="form-control"
+           [(ngModel)]="paymentData.cardNumber" required>
   </div>
   <div class="form-group">
     <label for="expirationDate">Expiration Date</label>
-    <input type="text" id="expirationDate" name="expirationDate" class="form-control" required>
+    <input type="text" id="expirationDate" name="expirationDate" class="form-control"
+           [(ngModel)]="paymentData.expirationDate" required>
   </div>
   <div class="form-group">
     <label for="cvv">CVV</label>
-    <input type="text" id="cvv" name="cvv" class="form-control" required>
+    <input type="text" id="cvv" name="cvv" class="form-control"
+           [(ngModel)]="paymentData.cvv" required>
   </div>
+  
   <button type="submit" class="btn btn-primary">Submit Payment</button>
 </form>

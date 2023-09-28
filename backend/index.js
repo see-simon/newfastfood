@@ -23,7 +23,7 @@ app.put('/users/:id', db.updateUser);
 app.delete('/users/:id', db.deleteUser);
 
 // Route for breakfast data
-app.get('/breakfast', db.getBreakfast);
+app.get('/breakfast', db.getBreakefast);
 
 // Payment API
 app.post('/payment', db.payment);

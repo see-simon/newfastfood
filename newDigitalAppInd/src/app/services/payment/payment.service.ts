@@ -14,8 +14,9 @@ export class PaymentService {
 
   constructor(private http: HttpClient) { }
 
-  payment(data: any): Observable<any> {
+  payment(data: any ): Observable<any> {
     const paymentEndpoint = `${this.apiurl}/payment`;
+  
     return this.http.post(paymentEndpoint, data ,{ responseType: 'json' });
   }
 }

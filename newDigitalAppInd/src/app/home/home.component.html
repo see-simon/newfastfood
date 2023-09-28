@@ -3,30 +3,13 @@
   <header class="popular"><b>Popular Menu</b></header>
 
 </div>
-
-
-
-
   <div class="container" *ngFor="let product of breakefast">
-
     <div class="card" style="width: 70%">
-
       <img [src]="product.imageurl" style="width: 60% ">
-
       <div class="card-body">
-
         <p class="discription"> {{product.foodname}}</p>
-
-
         <p class="card-text">Price: R {{product.price}} </p>
-
-        <!-- <a href="#" class="btn btn-primary" routerLink='/trackorder'>Make Order </a>
-         -->
-
-         <button routerLink="/login">Select Order</button>
-
+          <button routerLink="/login">Select Order</button>
       </div>
-
     </div>
-
   </div>

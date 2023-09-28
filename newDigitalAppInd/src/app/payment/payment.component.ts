@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PaymentService } from '../services/payment/payment.service';
@@ -19,7 +19,7 @@ export class PaymentComponent implements OnInit {
     cvv: '',
   };
 
-  constructor(private route: ActivatedRoute, private pay: PaymentService, private http: HttpClient) { }
+  constructor(private route: ActivatedRoute, private pay: PaymentService) { }
 
   ngOnInit() {
     // Retrieve the totalCartPrice from route parameters
@@ -32,6 +32,8 @@ export class PaymentComponent implements OnInit {
   }
 
   processPayment() {
+    console.log('Payment data:', this.paymentData);
+   
     this.pay.payment(this.paymentData).subscribe(
       (response) => {
         console.log('Payment successful', response);
